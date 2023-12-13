@@ -25,7 +25,7 @@ const myHonda = {  // <--
 console.log(myHonda.engine.cylinders);
 
 
-// Using a constructor function/ Usando uma função construtora
+// Using a constructor function / Usando uma função construtora
 
 function Car(make, model, year, owner) { // <-- Isso é um construtor
     this.make = make;
@@ -50,3 +50,24 @@ console.log(car1);
 console.log(car2.owner.name);
 console.log(car1.color = 'black');
 console.log(car1);
+
+
+// Using the Object.create() method / Usando o método Object.create()
+
+// Propriedades de Animal e encapsulamento de método
+const Animal = {
+    type: 'Invertebrates', // Valor padrão da propriedade
+    displayType() {
+        // Método que exibe o tipo do animal
+        console.log(this.type);
+    },
+};
+
+// Criando um novo tipo de animal chamado animal1
+const animal1 = Object.create(Animal);
+animal1.displayType();
+
+// Criando um novo tipo de animal chamado fish
+const fish = Object.create(Animal);
+fish.type = 'Fishes';
+fish.displayType();
