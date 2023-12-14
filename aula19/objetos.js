@@ -71,3 +71,31 @@ animal1.displayType();
 const fish = Object.create(Animal);
 fish.type = 'Fishes';
 fish.displayType();
+
+// Acessando propriedades
+
+// Dot notation / Notação de ponto
+car2.make = 'Ford';
+car2.model = 'Mustang';
+car2.year = 1969;
+
+// Bracket notation / Notação de colchtes
+car2['make'] = 'Ford';
+car2['model'] = 'Mustang';
+car2['year'] = '1969';
+
+const myObj = {};
+const str = 'myString';
+const proba = Math.random();
+const anotherObj = {};
+
+//Criando propriedades adicionais para myObj
+myObj.type = 'Sintaxe de ponto para uma chave chamada type';
+myObj['Data criada'] = 'Essa chave tem um espaço';
+myObj[str] = 'Essa chave é a variável str';
+myObj[proba] = 'Um número aleatório é a chave aqui';
+myObj[anotherObj] = 'Essa chave é o objeto anotherObj';
+myObj[''] = 'Essa chave é uma string vazia';
+
+console.log(myObj);
+console.log(myObj.myString);
