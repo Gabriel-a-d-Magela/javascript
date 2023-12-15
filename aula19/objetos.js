@@ -99,3 +99,52 @@ myObj[''] = 'Essa chave é uma string vazia';
 
 console.log(myObj);
 console.log(myObj.myString);
+
+// Enumerating properties / Enumerando propriedades
+
+// for..in loops
+function showProps(obj, objName) {
+    let result = '';
+    for (const i in obj) {
+        // Object.hasOwn() é usado para excluir propriedades de objetos
+        // prototype chain só exibe "propriedades próprias"
+        if (Object.hasOwn(obj, i)) {
+            result += `${objName}.${i} = ${obj[i]}\n`;
+        }
+    }
+    console.log(result);
+}
+
+// Objects.keys()
+
+function showProps(obj, objName) {
+    let result = '';
+    Object.keys(obj).forEach((i) => {
+        result += `${objName}.${i} = ${obj[i]}\n`
+    });
+    console.log(result);
+}
+
+// Object.getOwnPropertyNames()
+
+function listAllProperties(myObj) {
+    let objectToInspect = myObj;
+    let result = [];
+
+    while (objectToInspect !== null) {
+        result = result.concat(Object.getOwnPropertyNames(objectToInspect));
+        objectToInspect = Object.getPrototypeOf(objectToInspect);    
+    }
+    return result;
+}
+
+// Deleting properties / Deleteando propriedades
+
+// Cria um novo objeto, myobj, com duas propriedades, a e b
+const myobj = new Object();
+myobj.a = 5;
+myobj.b = 12;
+
+// Remove a propriedade a, deixando myobj apenas com a propriedade b.
+delete myobj.a;
+console.log('a' in myobj);
