@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipo</title>
+</head>
+<body>
+    <script>
+        // Objeto pessoa
+        let pessoa = {
+            talk: true,
+            podeVoar() {
+                return "Desculpa, não consigo voar";
+            },
+        };
+
+        // Objeto programador
+        let programador = {
+            podeCodar: true,
+            podeCozinhar() {
+                return "Não sei dizer";
+            },
+            // Herdando as propriedades e métodos de pessoa
+            __proto__: pessoa,
+        };
+
+        // Exibindo no console
+        // Propriedade de pessoa
+        console.log("Um programador pode falar: " + programador.talk);
+
+        // Método de pessoa
+        console.log("Um programador pode voar: " + programador.podeVoar());
+
+        // Propriedade de programador
+        console.log("Um programador pode codar: " + programador.podeCodar);
+
+        // Método de cozinhar
+        console.log("Um programador pode cozinhar: " + programador.podeCozinhar());
+    </script>
+</body>
+</html>
