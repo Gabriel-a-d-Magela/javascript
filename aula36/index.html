@@ -14,15 +14,17 @@
                 Digite o número da sorte
             </h2>
             <div class="numeros-da-sorte">
-                <input type="text" class="numeros" id="primeiro_numero" maxlength="2" minlength="2">
-                <input type="text" class="numeros" id="segundo_numero" maxlength="2" minlength="2">
-                <input type="text" class="numeros" id="terceiro_numero" maxlength="2" minlength="2">
-                <input type="text" class="numeros" id="quarto_numero" maxlength="2" minlength="2">
-                <input type="text" class="numeros" id="quinto_numero" maxlength="2" minlength="2">
-                <input type="text" class="numeros" id="sexto_numero" maxlength="2" minlength="2">
+                <input type="number" class="numeros" id="primeiro_numero" min="1" max="60">
+                <input type="number" class="numeros" id="segundo_numero" min="1" max="60">
+                <input type="number" class="numeros" id="terceiro_numero" min="1" max="60">
+                <input type="number" class="numeros" id="quarto_numero" min="1" max="60">
+                <input type="number" class="numeros" id="quinto_numero" min="1" max="60">
+                <input type="number" class="numeros" id="sexto_numero" min="1" max="60">
             </div>
-            <button class="btn-aposta">APOSTAR</button>
+            <button class="btn-aposta" onclick="apostar()">APOSTAR</button>
         </section>
+        <div id="resultado"></div>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
