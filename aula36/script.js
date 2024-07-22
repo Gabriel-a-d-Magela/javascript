@@ -1,25 +1,44 @@
 var numAposta = [];
 var numSorte = [];
 
-function gerarNumerodaSorte() {
-    for (let cont = 0; cont < 6; cont++) {
-        var v = Math.floor(Math.random() * 60) + 1
-        numSorte.push(v);
-    };
+function compararArrays(a1, a2) {
+    return JSON.stringify(a1) === JSON.stringify(a2);
+};
 
-    alert(numSorte);
-
-    if (numAposta == numSorte) {
-        alert("PARABÉNS!");
-    } else {
-        for (let contador = 0; contador < 6; contador++) {
-            numSorte.pop()
-        }
-    }
+function numerosRepetidos(array) {
+    return (new Set(array)).size !== array.length;
 }
 
+function gerarNumerodaSorte() {
+    while (true) {
+        for (let cont = 0; cont < 6; cont++) {
+            var v = Math.floor(Math.random() * 6) + 1;
+            numSorte.push(v);
+        };
+        // Verifica se os números são repetidos
+        let repete = numerosRepetidos(numSorte);
+        if (repete === true) {
+            for (let contador = 0; contador < 6; contador++) {
+                numSorte.pop();
+            };
+        }
+        console.log(numSorte);
+        // Verifica se os arrays são iguais
+        let res = (compararArrays(numAposta, numSorte));
+        if (res === true) {
+            alert("PARABÉNS! VOCÊ É O NOVO MILIONÁRIO!!!");
+            break;
+        // Caso contrário, apaga os valores
+        } else {
+            for (let contador = 0; contador < 6; contador++) {
+                numSorte.pop();
+            };
+        };
+    };
+};
+
 function erro() {
-    alert("[ERRO] Digite um valor entre 1 e 60")
+    alert("[ERRO] Digite um valor entre 1 e 6")
 }
 function apostar() {
     let prinum = document.getElementById("primeiro_numero");
@@ -39,21 +58,20 @@ function apostar() {
         quinum = Number(quinum.value);
         sexnum = Number (sexnum.value);
         /* Testa se os valores estão na faixa de valores correta */
-        if (prinum < 1 || prinum > 60) {
+        if (prinum < 1 || prinum > 6) {
             erro();
-        } else if (secnum < 1 || secnum > 60) {
+        } else if (secnum < 1 || secnum > 6) {
             erro();
-        } else if (ternum < 1 || ternum > 60) {
+        } else if (ternum < 1 || ternum > 6) {
             erro();
-        } else if (quarnum < 1 || quarnum > 60) {
+        } else if (quarnum < 1 || quarnum > 6) {
             erro();
-        } else if (quinum < 1 || quinum > 60) {
+        } else if (quinum < 1 || quinum > 6) {
             erro();
-        } else if (sexnum < 1 || sexnum > 60) {
+        } else if (sexnum < 1 || sexnum > 6) {
             erro();
         } else {
             /* Testa se o array está vazio */
-            /* Refazer o funcionamento do array */
             if (numAposta.length === 0) {
                 numAposta.push(prinum);
                 numAposta.push(secnum);
